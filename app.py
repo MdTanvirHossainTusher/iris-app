@@ -12,7 +12,7 @@ def make_prediction(data):
     X_test = scale.fit_transform(data)
 
     # Load model
-    with open("iris.pkl", "rb") as f:
+    with open("model/iris_rf.pkl", "rb") as f:
         model = pickle.load(f)
 
     # Make prediction
@@ -40,7 +40,7 @@ def main():
     # Make prediction when 'Predict' button is clicked
     if st.button("Predict"):
         prediction = make_prediction(input_df)
-        st.write(f"Predicted class: {prediction}")
+        st.write(f"Predicted class: {prediction[0]}")
 
 
 if __name__ == "__main__":
